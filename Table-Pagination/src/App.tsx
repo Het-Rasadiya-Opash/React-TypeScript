@@ -14,11 +14,17 @@ const usersData: User[] = Array.from({ length: 42 }, (_, i) => ({
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  // console.log("Current Page:", currentPage);
+
   const pageSize = 5;
   const totalPages = Math.ceil(usersData.length / pageSize);
+  // console.log("Total Pages:", totalPages);
 
   const startIndex = (currentPage - 1) * pageSize;
+  // console.log("Start Index:", startIndex);
+
   const currentUsers = usersData.slice(startIndex, startIndex + pageSize);
+  // console.log(currentUsers);
 
   return (
     <div className="max-w-3xl mx-auto p-4">
