@@ -16,7 +16,6 @@ const usersData: User[] = Array.from({ length: 20 }, (_, i) => ({
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Client-side filtering logic
   const filteredUsers = usersData.filter((user) =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email.toLowerCase().includes(searchTerm.toLowerCase())
