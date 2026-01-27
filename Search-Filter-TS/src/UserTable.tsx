@@ -1,16 +1,21 @@
 import React from "react";
-
 export interface User {
   id: number;
   name: string;
   email: string;
+  age: number;
 }
-
 interface UserTableProps {
   users: User[];
+  sortAsc: boolean;
+  onToggleSort: () => void;
 }
 
-const UserTable: React.FC<UserTableProps> = ({ users }) => {
+const UserTable: React.FC<UserTableProps> = ({
+  users,
+  sortAsc,
+  onToggleSort,
+}) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white border border-gray-200 rounded-lg">
@@ -19,6 +24,12 @@ const UserTable: React.FC<UserTableProps> = ({ users }) => {
             <th className="px-4 py-2 border-b text-left">ID</th>
             <th className="px-4 py-2 border-b text-left">Name</th>
             <th className="px-4 py-2 border-b text-left">Email</th>
+            <th
+              className="px-4 py-2 border-b text-left cursor-pointer select-none"
+              onClick={onToggleSort}
+            >
+              Age {sortAsc ? "🔼" : "🔽"}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -28,11 +39,12 @@ const UserTable: React.FC<UserTableProps> = ({ users }) => {
                 <td className="px-4 py-2 border-b">{user.id}</td>
                 <td className="px-4 py-2 border-b">{user.name}</td>
                 <td className="px-4 py-2 border-b">{user.email}</td>
+                <td className="px-4 py-2 border-b">{user.age}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={3} className="text-center py-4 text-gray-500">
+              <td colSpan={4} className="text-center py-4 text-gray-500">
                 No results found
               </td>
             </tr>
