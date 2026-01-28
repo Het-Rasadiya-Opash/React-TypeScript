@@ -54,10 +54,11 @@ const MultiStepForm = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.SubmitEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Form submitted successfully!");
+
     console.log(formData);
+    alert("Form submitted successfully!");
   };
 
   return (
@@ -168,6 +169,7 @@ const MultiStepForm = () => {
               Next
             </button>
           )}
+
           {step === 3 && (
             <button
               type="submit"
