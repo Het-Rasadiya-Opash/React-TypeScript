@@ -23,14 +23,18 @@ const MultiStepForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ email: "", password: "", confirmPassword: "", name: "" });
   };
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
+    const isEmail = new RegExp(
+      "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    );
 
     if (step === 1) {
       if (!formData.name.trim()) newErrors.name = "Name is required";
-      if (!formData.email.includes("@"))
+      if (!isEmail.test(formData.email))
         newErrors.email = "Invalid email address";
     }
 
@@ -89,7 +93,7 @@ const MultiStepForm = () => {
 
             <div>
               <input
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Email Address"
                 value={formData.email}
