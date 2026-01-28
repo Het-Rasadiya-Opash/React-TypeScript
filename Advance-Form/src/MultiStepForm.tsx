@@ -36,10 +36,10 @@ const MultiStepForm = () => {
 
     if (step === 2) {
       if (formData.password.length < 6)
-        newErrors.password = "Password must be at least 6 characters";
+        newErrors.password = "Password must be 6 characters";
 
       if (formData.confirmPassword !== formData.password)
-        newErrors.confirmPassword = "Passwords do not match";
+        newErrors.confirmPassword = "Passwords  not match";
     }
 
     setErrors(newErrors);
@@ -58,7 +58,7 @@ const MultiStepForm = () => {
     e.preventDefault();
 
     console.log(formData);
-    alert("Form submitted successfully!");
+    alert("Form submited successfully...!");
   };
 
   return (
