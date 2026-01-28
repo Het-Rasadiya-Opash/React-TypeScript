@@ -46,8 +46,7 @@ const MultiStepForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // e.preventDefault()
+  const handleNext = () => {
     if (validate()) setStep(step + 1);
   };
 
