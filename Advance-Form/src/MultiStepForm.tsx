@@ -44,7 +44,7 @@ const MultiStepForm = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
+
   const handleNext = () => {
     if (validate()) {
       setStep(step + 1);
