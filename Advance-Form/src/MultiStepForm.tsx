@@ -55,7 +55,7 @@ const MultiStepForm = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault();
     alert("Form submitted successfully!");
     console.log(formData);
