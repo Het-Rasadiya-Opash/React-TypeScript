@@ -66,7 +66,6 @@ const MultiStepForm = () => {
         onSubmit={handleSubmit}
         className="bg-white w-full max-w-md p-6 rounded-xl shadow-lg space-y-5"
       >
-        {/* Header */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-800">
             Step {step} of 3
@@ -76,7 +75,6 @@ const MultiStepForm = () => {
           </p>
         </div>
 
-        {/* Step 1 */}
         {step === 1 && (
           <div className="space-y-4">
             <div>
@@ -109,7 +107,6 @@ const MultiStepForm = () => {
           </div>
         )}
 
-        {/* Step 2 */}
         {step === 2 && (
           <div className="space-y-4">
             <div>
@@ -144,7 +141,6 @@ const MultiStepForm = () => {
           </div>
         )}
 
-        {/* Step 3 */}
         {step === 3 && (
           <div className="bg-gray-50 p-4 rounded-lg space-y-2">
             <p className="text-gray-700">
