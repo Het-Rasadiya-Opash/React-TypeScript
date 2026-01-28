@@ -152,7 +152,6 @@ const MultiStepForm = () => {
           </div>
         )}
 
-        {/* Buttons */}
         <div className="flex justify-between pt-4">
           {step > 1 && (
             <button
