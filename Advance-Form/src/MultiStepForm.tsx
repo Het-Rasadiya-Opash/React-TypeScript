@@ -46,7 +46,8 @@ const MultiStepForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNext = () => {
+  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // e.preventDefault()
     if (validate()) setStep(step + 1);
   };
 
@@ -56,6 +57,7 @@ const MultiStepForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("SUBMIT CALLED AT STEP:", step);
     alert("Form submitted successfully!");
     console.log(formData);
   };
@@ -67,12 +69,8 @@ const MultiStepForm = () => {
         className="bg-white w-full max-w-md p-6 rounded-xl shadow-lg space-y-5"
       >
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Step {step} of 3
-          </h2>
-          <p className="text-sm text-gray-500">
-            Complete the form to continue
-          </p>
+          <h2 className="text-2xl font-bold text-gray-800">Step {step} of 3</h2>
+          <p className="text-sm text-gray-500">Complete the form to continue</p>
         </div>
 
         {step === 1 && (
@@ -163,7 +161,7 @@ const MultiStepForm = () => {
             </button>
           )}
 
-          {step < 3 ? (
+          {step < 3 && (
             <button
               type="button"
               onClick={handleNext}
@@ -171,7 +169,8 @@ const MultiStepForm = () => {
             >
               Next
             </button>
-          ) : (
+          )}
+          {step === 3 && (
             <button
               type="submit"
               className="ml-auto px-6 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700"
