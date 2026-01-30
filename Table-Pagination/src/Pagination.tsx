@@ -16,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
         disabled={currentPage === 1}
       >
-        Prev
+        Back
       </button>
       {pages.map((page) => (
         <button
